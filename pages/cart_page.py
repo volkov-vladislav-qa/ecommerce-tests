@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import allure
+import re
 
 
 
@@ -70,13 +71,12 @@ class CartPage(Base):
         self.click_complete_order()
 
     """Название и цена товара( для проверки со стартовой ценой)"""
+
     def comparison_price(self):
-        return f"{self.text_name_product()} : {self.text_price_product()} Рублей"
-
-
+        return f"{self.text_name_product()} : {int(re.sub(r'[^\d]', '', self.text_price_product()))}"
 
     @allure.step("удаление всех товаров из корзины")
-    def comparison_price_all(self):
+    def delete_all_product(self):
             all_elem = self.get_btn_delete()
             for i in all_elem:
                 i.click()

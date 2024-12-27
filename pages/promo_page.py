@@ -149,7 +149,7 @@ class PromoPage(Base):
     """Товар с минимальной ценой"""
     def min_price_product(self):
         min_price = min(self.sorted_product_catalog(),key=self.product_catalog.get)
-        return f'{min_price} : {self.product_catalog[min_price]} Рублей'
+        return f'{min_price} : {self.product_catalog[min_price]}'
 
     @allure.step("Добавляем товар в корзину")
     def move_product_to_cart(self):

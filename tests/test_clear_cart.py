@@ -14,7 +14,7 @@ def test_clear_cart(chrome_driver,login):
 
         try:
                 # Попытка удалить все элементы
-                cartpage.comparison_price_all()
+                cartpage.delete_all_product()
 
                 # Проверка, что корзина пуста
                 finish_text = cartpage.get_item_is_successfully().text

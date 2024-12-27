@@ -9,10 +9,8 @@ from pages.checkout import CheckOut
 import allure
 
 @allure.description('Тест полного пути до момента подтверждения заказа')
-def test_select_product(chrome_driver):
-        print('Start Test')
-        login = LoginPage(chrome_driver)
-        login.authorization() # авторизация
+def test_select_product(chrome_driver,login):
+
 
         main = MainPage(chrome_driver)
         main.go_to_the_promo() # переход на страницу с акционным товаром
