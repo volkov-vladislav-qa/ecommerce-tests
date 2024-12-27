@@ -25,7 +25,7 @@
 
 ## Установка и настройка
 
-1. Клонируйте репозиторий:
-   ```bash
-   git clone https://github.com/volkov-vladislav/ecommerce-tests.git
-   cd ecommerce-tests
+1. Запуск тестов через Allure python (-m pytest --alluredir=test_results/)
+2. Для генерации отчета в браузере (открыть консоль, перейти в директорию проекта и ввести "allure serve test_results" )
+
+
