@@ -13,7 +13,7 @@ class LoginPage(Base):
         self.driver = driver
 
 
-    url = "https://fuji-san.ru/japonskie-sladosti/" # url тестируемого сайта
+
 
     # Locators
 
@@ -65,8 +65,6 @@ class LoginPage(Base):
     #Methods
     @allure.description('Авторизация')
     def authorization(self):
-        self.driver.get(self.url)
-        self.driver.maximize_window()
         self.get_current_url()
         self.click_btn_entrance_start()
         self.input_user_login('wolf92rabota@gmail.com')
