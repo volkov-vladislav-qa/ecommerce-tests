@@ -6,7 +6,7 @@ import allure
 
 
 @allure.description('Удаление всех товаров из корзины')
-def test_clear_cart(chrome_driver,login):
+def test_clear_cart(chrome_driver,login_fix):
         base = Base(chrome_driver)
         base.open_cart()
 

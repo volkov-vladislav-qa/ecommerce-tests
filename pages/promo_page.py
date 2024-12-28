@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import StaleElementReferenceException
 from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import TimeoutException
 import re
 
 
@@ -14,7 +15,6 @@ class PromoPage(Base):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver = driver
         self.product_catalog = {}
 
     # Locators

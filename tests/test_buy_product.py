@@ -9,9 +9,7 @@ from pages.checkout import CheckOut
 import allure
 
 @allure.description('Тест полного пути до момента подтверждения заказа')
-def test_select_product(chrome_driver,login):
-
-
+def test_select_product(chrome_driver,login_fix):
         main = MainPage(chrome_driver)
         main.go_to_the_promo() # переход на страницу с акционным товаром
 
@@ -19,7 +17,6 @@ def test_select_product(chrome_driver,login):
         promo.filter_by_price(100,200) # фильтр по цене от и до
         promo.sort_by_price() # сортировка от мин цены до макс в выбранном ценовом диапазоне
         promo.change_to_table_view() # переключаем отображение товара с плиточного на табличный вид
-        print(promo.min_price_product())
         promo.move_product_to_cart() # добавляем 1 товар на странице в корзину
 
         base=Base(chrome_driver)
@@ -27,7 +24,6 @@ def test_select_product(chrome_driver,login):
 
         cartpage = CartPage(chrome_driver)
         cartpage.get_current_url()
-        print(cartpage.comparison_price())
         cartpage.move_complete_order()
 
         checkout = CheckOut(chrome_driver)

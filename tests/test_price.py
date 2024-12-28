@@ -8,7 +8,7 @@ from base.base_class import Base
 import allure
 
 @allure.description('Сравнение цены товара на странице и в корзине')
-def test_price_product(chrome_driver,login):
+def test_price_product(chrome_driver,login_fix):
         main = MainPage(chrome_driver)
         main.go_to_the_promo()  # переход на страницу с акционным товаром
 

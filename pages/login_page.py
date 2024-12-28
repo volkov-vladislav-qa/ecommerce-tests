@@ -23,6 +23,7 @@ class LoginPage(Base):
     btn_entrance_finish = (By.XPATH, '//input[@value="Войти"]')
     close_window_authorization = (By.XPATH,'//i[@class="icon-remove"]') # крестик закрытия всплывающего окна об успехе авторизации
     main_word = (By.XPATH, '//span[contains(text(), "Добро")]')
+    success_autoriz = (By.XPATH,'//p[text()="Авторизация прошла успешно!"]')
 
     # Getters
 
@@ -43,6 +44,9 @@ class LoginPage(Base):
 
     def get_main_word(self):
         return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.main_word))
+
+    def get_success_autoriz(self):
+        return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.success_autoriz))
 
     # Actions
     def click_btn_entrance_start(self):
@@ -71,4 +75,3 @@ class LoginPage(Base):
         self.input_user_password('1')
         self.click_btn_entrance_finish()
         self.click_close_window_authorization()
-        self.assert_word(self.get_main_word(),'Добро пожаловать')

@@ -8,6 +8,7 @@ from pages.login_page import LoginPage
 def chrome_driver():
     # Настройки Chrome
     options = Options()
+    #options.add_argument("--headless")  # Включаем headless mode
     options.add_argument("--incognito")
     options.add_argument("--disable-webrtc")
     options.add_argument("--disable-logging")
@@ -28,6 +29,6 @@ def chrome_driver():
 
 """Вход"""
 @pytest.fixture
-def login(chrome_driver):
+def login_fix(chrome_driver):
     login = LoginPage(chrome_driver)
     login.authorization()  # авторизация

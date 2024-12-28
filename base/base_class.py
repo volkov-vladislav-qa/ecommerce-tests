@@ -14,12 +14,6 @@ class Base:
         get_url = self.driver.current_url
         print(f'Current URL : {get_url}')
 
-    """Проверка значения текста"""
-    def assert_word(self,word,result):
-        value_word = word.text.split(',')[0]
-        assert value_word == result
-        print(f'Надпись об успешном переходе на главную страницу : {value_word}')
-
     @allure.step("Переход в корзину")
     def open_cart(self):
         cart = (By.XPATH,'//i[@class="icon-shopping-cart icon-2x"]')

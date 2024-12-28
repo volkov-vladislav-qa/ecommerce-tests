@@ -71,7 +71,6 @@ class CartPage(Base):
         self.click_complete_order()
 
     """Название и цена товара( для проверки со стартовой ценой)"""
-
     def comparison_price(self):
         return f"{self.text_name_product()} : {int(re.sub(r'[^\d]', '', self.text_price_product()))}"
 
